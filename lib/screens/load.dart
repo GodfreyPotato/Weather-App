@@ -21,7 +21,7 @@ class _LoadingState extends State<Loading> {
   double lon = 120.5950576;
   String? timeNow;
   void ini() async{
-    weatherAPI instance = weatherAPI(cityname: '', lat: lat, lon: lon);
+    weatherAPI instance = weatherAPI(cityname: '', lat: lat, lon: lon, place:"Asia/Manila");
     await instance.getWeather();
     cityname =  instance.cityname;
     temp =  instance.temp;

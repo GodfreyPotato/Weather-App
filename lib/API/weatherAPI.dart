@@ -1,5 +1,7 @@
+import 'package:http/http.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_app/API/apikey.dart';
+import 'dart:convert';
 
 class weatherAPI{
   String? cityname;
@@ -10,17 +12,22 @@ class weatherAPI{
   double lon;
   late String bgimg;
   late String weather;
+  late String currentTime;
+  late String place;
   WeatherFactory wf = WeatherFactory(apiKey);
 
-  weatherAPI ({required this.cityname, required this.lat, required this.lon});
+  weatherAPI ({required this.cityname, required this.lat, required this.lon, required this.place});
 
   Future <void> getWeather() async{
     Weather w = await wf.currentWeatherByLocation(lat, lon);
-
+    Response res = await get(Uri.parse("http://worldtimeapi.org/api/timezone/$place"));
+    Map timeMap = jsonDecode(res.body);
+    currentTime = timeMap['datetime'];
+    print(currentTime);
     cityname = w.areaName;
     temp = w.temperature.toString();
     code = w.weatherConditionCode;
-    time = int.parse(w.date.toString().substring(11,13));
+    time = int.parse(currentTime.substring(11,13));
     bgw();
 
   }

@@ -12,10 +12,11 @@ class Location extends StatefulWidget {
 
 class _LocationState extends State<Location> {
   List<weatherAPI> locations = [
-    weatherAPI(cityname:'Sta. Maria, Pangasinan' ,lat: 15.9586767, lon: 120.6978768),
-    weatherAPI(cityname:'University Valley, Quezon City' , lat: 14.6634304, lon: 121.0726136),
-    weatherAPI(cityname:'Sta. Barbara, Pangasinan' , lat: 15.9704083, lon: 120.4883926),
-    weatherAPI(cityname: 'Russia', lat: 55.7825600, lon: 37.2594730),
+    weatherAPI(cityname:'Sta. Maria, Pangasinan',lat: 15.9586767, lon: 120.6978768, place: "Asia/Manila"),
+    weatherAPI(cityname:'University Valley, Quezon City', lat: 14.6634304, lon: 121.0726136, place: "Asia/Manila"),
+    weatherAPI(cityname:'Sta. Barbara, Pangasinan', lat: 15.9704083, lon: 120.4883926, place: "Asia/Manila"),
+    weatherAPI(cityname: 'Gorki, Russia', lat: 55.7825600, lon: 37.2594730, place: "Europe/Moscow"),
+    weatherAPI(cityname: 'Albuquerque, New Mexico', lat: 35.1256004, lon: -106.536845, place: "America/Denver")
   ];
 
   // List<Map> locations = [
